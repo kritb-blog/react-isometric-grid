@@ -1,5 +1,5 @@
 {
-    "name": "@kritb-blog/react-npm-template",
+    "name": "@kritb-blog/react-isometric-grid",
     "version": "0.0.0-development",
     "private": false,
     "main": "dist/cjs/index.js",
