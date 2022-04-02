@@ -1,3 +1,5 @@
+[![build](https://github.com/kritb-blog/react-isometric-grid/actions/workflows/buid.yml/badge.svg)](https://github.com/kritb-blog/react-isometric-grid/actions/workflows/buid.yml)
+
 # Getting Started with React NPM template
 
 Isometric 2D Grid using Reactjs
