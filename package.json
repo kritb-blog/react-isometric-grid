@@ -186,7 +186,7 @@
                 "name": "release"
             },
             {
-                "name": "main",
+                "name": "pre",
                 "prerelease": "beta"
             }
         ]
