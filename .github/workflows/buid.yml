@@ -31,7 +31,7 @@ jobs:
 
     semantic-release:
         runs-on: ubuntu-latest
-        if: github.event_name == 'push' && ( github.ref == 'refs/heads/pre' || github.ref == 'refs/heads/main' )
+        if: github.event_name == 'push' && ( github.ref == 'refs/heads/release' )
         needs: [build]
         strategy:
             matrix:
