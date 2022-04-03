@@ -1,0 +1,14 @@
+.grid {
+    border: solid 1px rgba(blue, 0.6);
+    box-shadow: -3px 3px 12px rgba(blue, 0.4);
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+}
+
+.row {
+    height: 30px;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    pointer-events: none;
+}
