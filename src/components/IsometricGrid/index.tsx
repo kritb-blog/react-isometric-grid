@@ -1,44 +1,53 @@
+import clsx from "clsx";
 import React from "react";
+import Tile from "../Tile";
 import "./styles.css";
 
-const CONSTANTS = {
-    MAX_ROW: 20,
-    MAX_COLUMN: 20,
-};
-
-export const Grid: React.FunctionComponent = ({ children }) => {
-    return <div className="grid">{children}</div>;
-};
-
-export const Row: React.FunctionComponent = ({ children }) => {
-    return <div className="row">{children}</div>;
-};
-
-interface TileProps {
-    index: number;
+interface IRowProps {
+    blockSize: number;
+    numOfCol: number;
+    responsive?: boolean;
 }
-export const Tile: React.FunctionComponent<TileProps> = ({ index }) => {
-    return <button className="tile">{index}</button>;
-};
 
-const IsometricGrid: React.FunctionComponent = () => {
+const Row: React.FunctionComponent<IRowProps> = ({ blockSize, numOfCol, responsive, children }) => {
+    const width = blockSize * numOfCol;
+    const style = responsive
+        ? { width: `${window.innerWidth / numOfCol}px`, height: `${blockSize}px` }
+        : { width: `${width}px`, height: `${blockSize}px` };
     return (
-        <div>
-            <Grid>
-                {Array(CONSTANTS.MAX_ROW)
-                    .fill("r")
-                    .map((_, rIndex) => (
-                        <Row key={rIndex}>
-                            {Array(CONSTANTS.MAX_COLUMN)
-                                .fill("t")
-                                .map((_, tIndex) => (
-                                    <Tile key={tIndex} index={tIndex} />
-                                ))}
-                        </Row>
-                    ))}
-            </Grid>
+        <div className="row" style={style}>
+            {children}
         </div>
     );
+};
+
+interface IGridProps {
+    numOfRow: number;
+    numOfCol: number;
+    className?: string;
+}
+
+const IsometricGrid: React.FunctionComponent<IGridProps> = ({ numOfRow, numOfCol, className }) => {
+    const generateGrid = () => {
+        return Array(numOfRow)
+            .fill("r")
+            .map((_, rIndex) => (
+                <Row key={rIndex} blockSize={30} numOfCol={numOfCol} responsive>
+                    {Array(numOfCol)
+                        .fill("t")
+                        .map((_, tIndex) => (
+                            <Tile
+                                key={tIndex}
+                                index={tIndex + rIndex * numOfCol}
+                                onTileClick={(index) => console.log(index)}
+                            >
+                                {tIndex + rIndex * numOfCol + 1}
+                            </Tile>
+                        ))}
+                </Row>
+            ));
+    };
+    return <div className={clsx("grid", className)}>{generateGrid()}</div>;
 };
 
 export default IsometricGrid;
