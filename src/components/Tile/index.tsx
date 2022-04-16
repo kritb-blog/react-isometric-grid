@@ -13,7 +13,7 @@ const Tile: React.FunctionComponent<TileProps> = ({ index, onTileClick, onTileHo
     const onHover = (index: number) => () => onTileHover && onTileHover(index, tileRef);
     const onClick = (index: number) => () => onTileClick && onTileClick(index, tileRef);
     return (
-        <div ref={tileRef} className="tile" onClick={onClick(index)} onMouseOver={onHover(index)}>
+        <div data-testid="tile" ref={tileRef} className="tile" onClick={onClick(index)} onMouseOver={onHover(index)}>
             {render(index)}
         </div>
     );
