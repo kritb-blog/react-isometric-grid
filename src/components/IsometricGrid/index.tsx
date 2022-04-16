@@ -1,48 +1,41 @@
 import clsx from "clsx";
 import React from "react";
 import Tile from "../Tile";
+import { IGridProps, IRowProps } from "./types";
 import "./styles.css";
 
-interface IRowProps {
-    blockSize: number;
-    numOfCol: number;
-    responsive?: boolean;
-}
-
-const Row: React.FunctionComponent<IRowProps> = ({ blockSize, numOfCol, responsive, children }) => {
+const Row: React.FunctionComponent<IRowProps> = ({ blockSize, numOfCol, children }) => {
     const width = blockSize * numOfCol;
-    const style = responsive
-        ? { width: `${window.innerWidth / numOfCol}px`, height: `${blockSize}px` }
-        : { width: `${width}px`, height: `${blockSize}px` };
     return (
-        <div className="row" style={style}>
+        <div className="row" style={{ width: `${width}px`, height: `${blockSize}px` }}>
             {children}
         </div>
     );
 };
 
-interface IGridProps {
-    numOfRow: number;
-    numOfCol: number;
-    className?: string;
-}
-
-const IsometricGrid: React.FunctionComponent<IGridProps> = ({ numOfRow, numOfCol, className }) => {
+const IsometricGrid: React.FunctionComponent<IGridProps> = ({
+    opts,
+    className,
+    onTileHover,
+    onTileClick,
+    renderTile,
+}) => {
+    const { numOfRow, numOfCol, blockSize } = opts;
     const generateGrid = () => {
         return Array(numOfRow)
             .fill("r")
             .map((_, rIndex) => (
-                <Row key={rIndex} blockSize={30} numOfCol={numOfCol} responsive>
+                <Row key={rIndex} blockSize={blockSize} numOfCol={numOfCol}>
                     {Array(numOfCol)
                         .fill("t")
                         .map((_, tIndex) => (
                             <Tile
                                 key={tIndex}
                                 index={tIndex + rIndex * numOfCol}
-                                onTileClick={(index) => console.log(index)}
-                            >
-                                {tIndex + rIndex * numOfCol + 1}
-                            </Tile>
+                                onTileClick={onTileClick}
+                                onTileHover={onTileHover}
+                                render={renderTile}
+                            />
                         ))}
                 </Row>
             ));
