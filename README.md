@@ -4,6 +4,9 @@
 
 Isometric 2D Grid using Reactjs
 
+# References
+- [Sample isometric in reactjs](https://codesandbox.io/s/k5w9qm4j23)
+
 # Researches about 3D isometric (next parse)
 
 -   [Sample 3D isometric using three-js](https://codesandbox.io/s/42glz0?file=/src/App.js)
