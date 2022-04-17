@@ -1,11 +1,14 @@
 [![build](https://github.com/kritb-blog/react-isometric-grid/actions/workflows/buid.yml/badge.svg)](https://github.com/kritb-blog/react-isometric-grid/actions/workflows/buid.yml)
 
+![Screenshot](/assets/screenshot.png)
+
 # Getting Started with React NPM template
 
 Isometric 2D Grid using Reactjs
 
 # References
-- [Sample isometric in reactjs](https://codesandbox.io/s/k5w9qm4j23)
+
+-   [Sample isometric in reactjs](https://codesandbox.io/s/k5w9qm4j23)
 
 # Researches about 3D isometric (next parse)
 
