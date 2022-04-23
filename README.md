@@ -1,6 +1,6 @@
 [![build](https://github.com/kritb-blog/react-isometric-grid/actions/workflows/buid.yml/badge.svg)](https://github.com/kritb-blog/react-isometric-grid/actions/workflows/buid.yml)
 
-![Screenshot](/assets/screenshot.png)
+![Screenshot](https://github.com/kritb-blog/react-isometric-grid/blob/main/assets/screenshot.png)
 
 # Getting Started with React NPM template
 
